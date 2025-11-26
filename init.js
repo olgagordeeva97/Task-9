@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Генератор случайных пользователей</title>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-</head>
-<body>
-<div class="container">
-    <div class="card text-center">
-        <div class="card-header">
-            Окно результатов генерации
-        </div>
-        <div class="card-body">
-            <h3 class="card-title">
-                <span id="surnameOutput">Генерация фамилии</span>
-            </h3>
-            <h4>Имя: <span id="firstNameOutput">Иван</span></h4>
-            <h4>Отчество: <span id="patronymicOutput">Иванович</span></h4>
-            <p>
-                Пол: <span id="genderOutput">Генерация пола</span>,<br>
-                Дата рождения: <span id="birthDayOutput">День</span> 
-                <span id="birthMonthOutput">Месяц</span> 
-                <span id="birthYearOutput">Год</span>
-            </p>
-            <p>Профессия: <span id="professionOutput">Генерация профессии</span></p>
-            <button id="generateBtn">Сгенерировать</button>
-            <button id="clearBtn">Очистить</button>
-        </div>
-    </div>
-</div>
+window.onload = function() {
+    const generateBtn = document.getElementById('generateBtn');
+    const clearBtn = document.getElementById('clearBtn');
 
-<script src="personGenerator.js"></script>
-<script src="init.js"></script>
-</body>
-</html>
+    generateBtn.addEventListener('click', generatePerson);
+    clearBtn.addEventListener('click', clearPerson);
+};
+
+function generatePerson() {
+    const person = personGenerator.getPerson();
+
+    document.getElementById('firstNameOutput').innerText = person.firstName;
+    document.getElementById('surnameOutput').innerText = person.surname;
+    document.getElementById('patronymicOutput').innerText = person.patronymic;
+    document.getElementById('genderOutput').innerText = person.gender;
+    document.getElementById('birthDayOutput').innerText = person.birthDay;
+    document.getElementById('birthMonthOutput').innerText = person.birthMonth;
+    document.getElementById('birthYearOutput').innerText = person.birthYear;
+    document.getElementById('professionOutput').innerText = person.profession;
+}
+
+function clearPerson() {
+    document.getElementById('firstNameOutput').innerText = '';
+    document.getElementById('surnameOutput').innerText = '';
+    document.getElementById('patronymicOutput').innerText = '';
+    document.getElementById('genderOutput').innerText = '';
+    document.getElementById('birthDayOutput').innerText = '';
+    document.getElementById('birthMonthOutput').innerText = '';
+    document.getElementById('birthYearOutput').innerText = '';
+    document.getElementById('professionOutput').innerText = '';
+}
