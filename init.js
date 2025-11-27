@@ -29,3 +29,6 @@ function clearPerson() {
     document.getElementById('birthYearOutput').innerText = '';
     document.getElementById('professionOutput').innerText = '';
 }
+
+
+
